@@ -1,10 +1,10 @@
-\# Palia AZERTY Patch 🇫🇷
+# Palia AZERTY Patch 🇫🇷
 
 Un patch simple pour configurer les touches de Palia pour les claviers AZERTY (déplacement en ZQSD et raccourcis F1-F8).
 
 
 
-\*Read this in English: \[English Version](#-palia-azerty-patch--en)\*
+*Read this in English: [English Version](#-palia-azerty-patch--en)*
 
 
 
@@ -12,23 +12,23 @@ Un patch simple pour configurer les touches de Palia pour les claviers AZERTY (d
 
 
 
-\## 🎯 Le Problème Corrigé
+## 🎯 Le Problème Corrigé
 
 Par défaut, Palia n'est pas pensé pour les claviers français. Ce patch corrige deux problèmes majeurs :
 
-1\.  \*\*Le déplacement (ZQSD) :\*\* Le script modifie la configuration du jeu pour que Z, Q, S, D servent à se déplacer.
+1.  **Le déplacement (ZQSD) :** Le script modifie la configuration du jeu pour que Z, Q, S, D servent à se déplacer.
 
-2\.  \*\*La barre de raccourcis :\*\* Le jeu attend les touches `1, 2, 3...`. Sur un clavier AZERTY, il faut faire `Maj` pour y accéder. Ce patch utilise \*\*AutoHotkey\*\* pour que les touches `F1` à `F8` activent les objets de la barre de raccourcis, ce qui est bien plus pratique.
+2.  **La barre de raccourcis :** Le jeu attend les touches `1, 2, 3...`. Sur un clavier AZERTY, il faut faire `Maj` pour y accéder. Ce patch utilise **AutoHotkey** pour que les touches `F1` à `F8` activent les objets de la barre de raccourcis, ce qui est bien plus pratique.
 
 
 
-\## 🧰 Ce que font les fichiers
+## 🧰 Ce que font les fichiers
 
 Ce projet contient 2 fichiers essentiels :
 
-\*   `patch\_palia\_azerty.ps1` : Le script principal qui modifie le fichier de configuration de Palia. \*\*À ne lancer qu'une seule fois.\*\*
+*   `patch_palia_azerty.ps1` : Le script principal qui modifie le fichier de configuration de Palia. **À ne lancer qu'une seule fois.**
 
-\*   `Palia.ahk` : Le script pour AutoHotkey qui s'occupe des touches F1 à F8. Il doit être actif quand vous jouez.
+*   `Palia.ahk` : Le script pour AutoHotkey qui s'occupe des touches F1 à F8. Il doit être actif quand vous jouez.
 
 
 
@@ -36,15 +36,15 @@ Ce projet contient 2 fichiers essentiels :
 
 
 
-\### ✅ Étape 1 : Installer AutoHotkey (Indispensable)
+### ✅ Étape 1 : Installer AutoHotkey (Indispensable)
 
 Cet outil gratuit et sécurisé permet de simuler les touches F1 à F8.
 
-1\.  Téléchargez \*\*AutoHotkey v2\*\* sur le site officiel : 🔗 \*\*https://www.autohotkey.com/\*\*
+1.  Téléchargez **AutoHotkey v2** sur le site officiel : 🔗 **https://www.autohotkey.com/**
 
-2\.  Cliquez sur "Download", puis "Download Current Version".
+2.  Cliquez sur "Download", puis "Download Current Version".
 
-3\.  Lancez l'installeur et choisissez "Express Installation". C'est tout !
+3.  Lancez l'installeur et choisissez "Express Installation". C'est tout !
 
 
 
@@ -52,17 +52,17 @@ Cet outil gratuit et sécurisé permet de simuler les touches F1 à F8.
 
 
 
-\### ✅ Étape 2 : Lancer le Patch
+### ✅ Étape 2 : Lancer le Patch
 
 C'est ici qu'on modifie les touches du jeu.
 
-1\.  Assurez-vous que `patch\_palia\_azerty.ps1` et `Palia.ahk` sont dans le même dossier.
+1.  Assurez-vous que `patch_palia_azerty.ps1` et `Palia.ahk` sont dans le même dossier.
 
-2\.  Faites un \*\*clic droit\*\* sur `patch\_palia\_azerty.ps1`.
+2.  Faites un **clic droit** sur `patch_palia_azerty.ps1`.
 
-3\.  Choisissez \*\*"Exécuter avec PowerShell"\*\*.
+3.  Choisissez **"Exécuter avec PowerShell"**.
 
-4\.  Une fenêtre (souvent bleue) va s'ouvrir, appliquer les changements et lancer le script `Palia.ahk` pour vous.
+4.  Une fenêtre (souvent bleue) va s'ouvrir, appliquer les changements et lancer le script `Palia.ahk` pour vous.
 
 
 
@@ -74,19 +74,19 @@ Une fois que c'est fait, vous n'avez plus besoin de relancer ce patch, sauf si u
 
 
 
-\### ✅ Étape 3 : Vérifier que tout est actif
+### ✅ Étape 3 : Vérifier que tout est actif
 
 Pour que les touches F1-F8 fonctionnent, le script AutoHotkey doit tourner en fond.
 
-1\.  Regardez en bas à droite de votre écran, près de l’horloge.
+1.  Regardez en bas à droite de votre écran, près de l’horloge.
 
-2\.  Cliquez sur la petite flèche (^) pour afficher les icônes cachées.
+2.  Cliquez sur la petite flèche (^) pour afficher les icônes cachées.
 
-3\.  Vous devez voir une \*\*icône verte avec un "H"\*\*. Si elle est là, tout est prêt ! ✅
+3.  Vous devez voir une **icône verte avec un "H"**. Si elle est là, tout est prêt ! ✅
 
 
 
-> \*\*L'icône "H" n'est pas là ?\*\* Pas de panique. Allez dans votre dossier `Documents\\AutoHotkey` et double-cliquez sur le fichier `Palia.ahk` pour le lancer manuellement.
+> **L'icône "H" n'est pas là ?** Pas de panique. Allez dans votre dossier `DocumentsAutoHotkey` et double-cliquez sur le fichier `Palia.ahk` pour le lancer manuellement.
 
 
 
@@ -94,37 +94,37 @@ Pour que les touches F1-F8 fonctionnent, le script AutoHotkey doit tourner en fo
 
 
 
-\### 💡 Dépannage (FAQ)
+### 💡 Dépannage (FAQ)
 
 
 
-\*   \*\*"Une erreur rouge s'affiche quand je lance le script PowerShell !"\*\*
+*   **"Une erreur rouge s'affiche quand je lance le script PowerShell !"**
 
-&nbsp;   \*   C'est sûrement la politique de sécurité de Windows. C'est facile à corriger.
+&nbsp;   *   C'est sûrement la politique de sécurité de Windows. C'est facile à corriger.
 
-&nbsp;   \*   1. Ouvrez le menu Démarrer, tapez "PowerShell", faites un \*\*clic droit\*\* dessus et "Exécuter en tant qu'administrateur".
+&nbsp;   *   1. Ouvrez le menu Démarrer, tapez "PowerShell", faites un **clic droit** dessus et "Exécuter en tant qu'administrateur".
 
-&nbsp;   \*   2. Copiez-collez cette commande dans la fenêtre bleue et appuyez sur Entrée : `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+&nbsp;   *   2. Copiez-collez cette commande dans la fenêtre bleue et appuyez sur Entrée : `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
-&nbsp;   \*   3. Tapez `O` (pour Oui) et validez. C'est bon ! Relancez le patch.
-
-
-
-\*   \*\*"Comment annuler les changements ?"\*\*
-
-&nbsp;   \*   Le patch a créé une sauvegarde. Allez dans :  
-
-&nbsp;       `C:\\Users\\VotreNom\\AppData\\Local\\Palia\\Saved\\Config\\WindowsClient\\`
-
-&nbsp;   \*   Supprimez le fichier `GameUserSettings.ini`.
-
-&nbsp;   \*   Renommez `GameUserSettings\_original.ini` en `GameUserSettings.ini`.
+&nbsp;   *   3. Tapez `O` (pour Oui) et validez. C'est bon ! Relancez le patch.
 
 
 
-\*   \*\*"Comment désactiver le script AutoHotkey ?"\*\*
+*   **"Comment annuler les changements ?"**
 
-&nbsp;   \*   Faites un clic droit sur l'icône verte "H" et choisissez "Exit".
+&nbsp;   *   Le patch a créé une sauvegarde. Allez dans :  
+
+&nbsp;       `C:Users\VotreNom\AppData\Local\Palia\SavedConfig\WindowsClient`
+
+&nbsp;   *   Supprimez le fichier `GameUserSettings.ini`.
+
+&nbsp;   *   Renommez `GameUserSettings_original.ini` en `GameUserSettings.ini`.
+
+
+
+*   **"Comment désactiver le script AutoHotkey ?"**
+
+&nbsp;   *   Faites un clic droit sur l'icône verte "H" et choisissez "Exit".
 
 
 
@@ -134,7 +134,7 @@ Pour que les touches F1-F8 fonctionnent, le script AutoHotkey doit tourner en fo
 
 
 
-\# 🇬🇧 Palia AZERTY Patch – EN
+# 🇬🇧 Palia AZERTY Patch – EN
 
 
 
@@ -142,23 +142,23 @@ A simple patch to set up Palia's keybindings for AZERTY keyboards (ZQSD movement
 
 
 
-\## 🎯 The Problem It Solves
+## 🎯 The Problem It Solves
 
 Palia's default settings aren't ideal for French keyboards. This patch fixes two main issues:
 
-1\.  \*\*Movement (ZQSD):\*\* The script patches the game's config file to use Z, Q, S, D for movement.
+1.  **Movement (ZQSD):** The script patches the game's config file to use Z, Q, S, D for movement.
 
-2\.  \*\*Shortcut Bar:\*\* The game expects keys `1, 2, 3...`, which require `Shift` on an AZERTY keyboard. This patch uses \*\*AutoHotkey\*\* to map your `F1` to `F8` keys to the shortcut bar for much easier access.
+2.  **Shortcut Bar:** The game expects keys `1, 2, 3...`, which require `Shift` on an AZERTY keyboard. This patch uses **AutoHotkey** to map your `F1` to `F8` keys to the shortcut bar for much easier access.
 
 
 
-\## 🧰 What The Files Do
+## 🧰 What The Files Do
 
 This project contains 2 key files:
 
-\*   `patch\_palia\_azerty.ps1`: The main script that patches Palia's config file. \*\*You only need to run this once.\*\*
+*   `patch_palia_azerty.ps1`: The main script that patches Palia's config file. **You only need to run this once.**
 
-\*   `Palia.ahk`: The AutoHotkey script that handles the F1-F8 keys. It needs to be running while you play.
+*   `Palia.ahk`: The AutoHotkey script that handles the F1-F8 keys. It needs to be running while you play.
 
 
 
@@ -166,15 +166,15 @@ This project contains 2 key files:
 
 
 
-\### ✅ Step 1: Install AutoHotkey (Required)
+### ✅ Step 1: Install AutoHotkey (Required)
 
 This free and safe tool is needed to remap the F1-F8 keys.
 
-1\.  Download \*\*AutoHotkey v2\*\* from the official website: 🔗 \*\*https://www.autohotkey.com/\*\*
+1.  Download **AutoHotkey v2** from the official website: 🔗 **https://www.autohotkey.com/**
 
-2\.  Click "Download", then "Download Current Version".
+2.  Click "Download", then "Download Current Version".
 
-3\.  Run the installer and select "Express Installation". You're done!
+3.  Run the installer and select "Express Installation". You're done!
 
 
 
@@ -182,17 +182,17 @@ This free and safe tool is needed to remap the F1-F8 keys.
 
 
 
-\### ✅ Step 2: Run the Patch
+### ✅ Step 2: Run the Patch
 
 This is where the magic happens.
 
-1\.  Make sure `patch\_palia\_azerty.ps1` and `Palia.ahk` are in the same folder.
+1.  Make sure `patch_palia_azerty.ps1` and `Palia.ahk` are in the same folder.
 
-2\.  \*\*Right-click\*\* on `patch\_palia\_azerty.ps1`.
+2.  **Right-click** on `patch_palia_azerty.ps1`.
 
-3\.  Select \*\*"Run with PowerShell"\*\*.
+3.  Select **"Run with PowerShell"**.
 
-4\.  A window (usually blue) will pop up, apply the changes, and launch the `Palia.ahk` script for you.
+4.  A window (usually blue) will pop up, apply the changes, and launch the `Palia.ahk` script for you.
 
 
 
@@ -204,19 +204,19 @@ You don't need to run this patch again unless a game update resets your keybindi
 
 
 
-\### ✅ Step 3: Check if it's running
+### ✅ Step 3: Check if it's running
 
 For the F1-F8 keys to work, the AutoHotkey script must be running in the background.
 
-1\.  Look at the bottom-right of your screen, near the clock (system tray).
+1.  Look at the bottom-right of your screen, near the clock (system tray).
 
-2\.  Click the small arrow (^) to show hidden icons.
+2.  Click the small arrow (^) to show hidden icons.
 
-3\.  You should see a \*\*green "H" icon\*\*. If it's there, you're good to go! ✅
+3.  You should see a **green "H" icon**. If it's there, you're good to go! ✅
 
 
 
-> \*\*Don't see the "H" icon?\*\* No worries. Go to your `Documents\\AutoHotkey` folder and double-click the `Palia.ahk` file to start it manually.
+> **Don't see the "H" icon?** No worries. Go to your `DocumentsAutoHotkey` folder and double-click the `Palia.ahk` file to start it manually.
 
 
 
@@ -224,35 +224,35 @@ For the F1-F8 keys to work, the AutoHotkey script must be running in the backgro
 
 
 
-\### 💡 Troubleshooting (FAQ)
+### 💡 Troubleshooting (FAQ)
 
 
 
-\*   \*\*"I see a red error when I run the PowerShell script!"\*\*
+*   **"I see a red error when I run the PowerShell script!"**
 
-&nbsp;   \*   This is likely Windows' script security policy. It's an easy fix.
+&nbsp;   *   This is likely Windows' script security policy. It's an easy fix.
 
-&nbsp;   \*   1. Open your Start Menu, type "PowerShell", \*\*right-click\*\* it, and "Run as administrator".
+&nbsp;   *   1. Open your Start Menu, type "PowerShell", **right-click** it, and "Run as administrator".
 
-&nbsp;   \*   2. In the blue window, paste this command and press Enter: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+&nbsp;   *   2. In the blue window, paste this command and press Enter: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
-&nbsp;   \*   3. Type `Y` (for Yes) and confirm. Done! Now run the patch again.
-
-
-
-\*   \*\*"How can I undo the changes?"\*\*
-
-&nbsp;   \*   The patch made a backup for you. Go to:  
-
-&nbsp;       `C:\\Users\\YourName\\AppData\\Local\\Palia\\Saved\\Config\\WindowsClient\\`
-
-&nbsp;   \*   Delete the `GameUserSettings.ini` file.
-
-&nbsp;   \*   Rename `GameUserSettings\_original.ini` to `GameUserSettings.ini`.
+&nbsp;   *   3. Type `Y` (for Yes) and confirm. Done! Now run the patch again.
 
 
 
-\*   \*\*"How do I stop the AutoHotkey script?"\*\*
+*   **"How can I undo the changes?"**
 
-&nbsp;   \*   Right-click the green "H" icon in your system tray and choose "Exit".
+&nbsp;   *   The patch made a backup for you. Go to:  
+
+&nbsp;       `C:\Users\YourName\AppData\Local\Palia\SavedConfig\WindowsClient`
+
+&nbsp;   *   Delete the `GameUserSettings.ini` file.
+
+&nbsp;   *   Rename `GameUserSettings_original.ini` to `GameUserSettings.ini`.
+
+
+
+*   **"How do I stop the AutoHotkey script?"**
+
+&nbsp;   *   Right-click the green "H" icon in your system tray and choose "Exit".
 
