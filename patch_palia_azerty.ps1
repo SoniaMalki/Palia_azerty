@@ -24,15 +24,6 @@ $ahkDir = Join-Path -Path $userDir -ChildPath 'Documents\AutoHotkey'
 $ahkFile = Join-Path -Path $ahkDir -ChildPath 'Palia.ahk'
 $autoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey.exe' # À ajuster si AHK est installé ailleurs
 
-# --- Chemin du script (méthode pour .ps1 et .exe) ---
-if ($PSScriptRoot) {
-    $scriptDir = $PSScriptRoot
-} else {
-    $scriptDir = Split-Path -Path (Get-Process -Id $PID).Path -Parent
-}
-$localAhkFile = Join-Path -Path $scriptDir -ChildPath 'Palia.ahk'
-
-
 # --- Début du Script ---
 
 Clear-Host
@@ -138,25 +129,41 @@ Write-Host
 # --- Gestion du Script AutoHotkey ---
 Write-Host "[INFO] Setting up the AutoHotkey script..." -ForegroundColor $colors.Info
 
+# Contenu du script AHK directement intégré dans une variable.
+$ahkScriptContent = @'
+#SingleInstance Force
+
+; Remapping actif uniquement pour Palia Steam
+#HotIf WinActive("ahk_exe PaliaClientSteam-Win64-Shipping.exe")
+
+&::F1
+é::F2
+"::F3
+'::F4
+(::F5
+-::F6
+è::F7
+_::F8
+
+#HotIf
+
+; Quitter le script avec Ctrl+Alt+Q
+^!q::ExitApp
+'@
+
 # On crée le dossier s'il n'existe pas
 if (-not (Test-Path -Path $ahkDir)) {
     New-Item -Path $ahkDir -ItemType Directory -Force | Out-Null
     Write-Host "[INFO] AutoHotkey directory created at: $ahkDir" -ForegroundColor $colors.Info
 }
 
-# On cherche et on copie le script AHK
-if (Test-Path -Path $localAhkFile) {
-    try {
-        Copy-Item -Path $localAhkFile -Destination $ahkFile -Force
-        Write-Host "[SUCCESS] AutoHotkey script copied to: $ahkFile" -ForegroundColor $colors.Success
-    } catch {
-        Write-Host "[ERROR] Could not copy the AutoHotkey script." -ForegroundColor $colors.Error
-        Write-Host $_.Exception.Message -ForegroundColor $colors.Error
-        Read-Host "Press Enter to exit."
-        exit
-    }
-} else {
-    Write-Host "[ERROR] Palia.ahk not found in script directory: $localAhkFile" -ForegroundColor $colors.Error
+# On crée le fichier Palia.ahk en utilisant le contenu intégré ci-dessus
+try {
+    $ahkScriptContent | Set-Content -Path $ahkFile -Encoding UTF8 -Force
+    Write-Host "[SUCCESS] AutoHotkey script created at: $ahkFile" -ForegroundColor $colors.Success
+} catch {
+    Write-Host "[ERROR] Could not create the AutoHotkey script." -ForegroundColor $colors.Error
+    Write-Host $_.Exception.Message -ForegroundColor $colors.Error
     Read-Host "Press Enter to exit."
     exit
 }
@@ -179,10 +186,10 @@ if (Test-Path -Path $autoHotkeyExe) {
     Write-Host "           Please verify the installation or adjust the path in the script." -ForegroundColor $colors.Warning
 }
 
-
+Write-Host
 
 # --- Ajout du script au démarrage (Startup) ---
-Write-Host "INFO: Ajout du script AutoHotkey au démarrage..." -ForegroundColor $colors.Info
+Write-Host "[INFO] Adding AutoHotkey script to startup..." -ForegroundColor $colors.Info
 
 $startupFolder = [Environment]::GetFolderPath("Startup")
 $shortcutPath = Join-Path -Path $startupFolder -ChildPath "Palia.ahk.lnk"
