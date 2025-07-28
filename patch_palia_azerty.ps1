@@ -23,7 +23,13 @@ $backupFile = Join-Path -Path $configDir -ChildPath 'GameUserSettings_original.i
 $ahkDir = Join-Path -Path $userDir -ChildPath 'Documents\AutoHotkey'
 $ahkFile = Join-Path -Path $ahkDir -ChildPath 'Palia.ahk'
 $autoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey.exe' # À ajuster si AHK est installé ailleurs
-$scriptDir = $PSScriptRoot # Le dossier où se trouve ce script
+
+# --- Chemin du script (méthode pour .ps1 et .exe) ---
+if ($PSScriptRoot) {
+    $scriptDir = $PSScriptRoot
+} else {
+    $scriptDir = Split-Path -Path (Get-Process -Id $PID).Path -Parent
+}
 $localAhkFile = Join-Path -Path $scriptDir -ChildPath 'Palia.ahk'
 
 
@@ -98,12 +104,14 @@ try {
         'IA_ActionBar_SelectSlot8'        = 'F8'
     }
 
+    $regexPattern = '(InputAction="{0}",InputKeys=\(\(Key=)[A-Za-z0-9]+'
+    
     # On applique chaque modification
     foreach ($action in $keyMappings.Keys) {
         $newKey = $keyMappings[$action]
         
-        # Le regex magique qui gère les touches secondaires sans tout casser
-        $regex = "(InputAction=""$action"",InputKeys=\(\(Key=)[A-Za-z0-9]+"
+        # On construit la regex de manière sûre avec l'opérateur de format -f
+        $regex = $regexPattern -f $action
         $replacement = '${1}' + $newKey
 
         if ($content -match $regex) {
@@ -170,6 +178,26 @@ if (Test-Path -Path $autoHotkeyExe) {
     Write-Host "[WARNING] AutoHotkey v2 executable not found at '$autoHotkeyExe'." -ForegroundColor $colors.Warning
     Write-Host "           Please verify the installation or adjust the path in the script." -ForegroundColor $colors.Warning
 }
+
+
+
+# --- Ajout du script au démarrage (Startup) ---
+Write-Host "INFO: Ajout du script AutoHotkey au démarrage..." -ForegroundColor $colors.Info
+
+$startupFolder = [Environment]::GetFolderPath("Startup")
+$shortcutPath = Join-Path -Path $startupFolder -ChildPath "Palia.ahk.lnk"
+
+# Crée un raccourci vers le script AHK
+$wshShell = New-Object -ComObject WScript.Shell
+$shortcut = $wshShell.CreateShortcut($shortcutPath)
+$shortcut.TargetPath = $autoHotkeyExe
+$shortcut.Arguments = "`"$ahkFile`""
+$shortcut.WorkingDirectory = $ahkDir
+$shortcut.WindowStyle = 1
+$shortcut.IconLocation = "$autoHotkeyExe,0"
+$shortcut.Save()
+
+Write-Host "[SUCCESS] Shortcut added to Windows startup: $shortcutPath" -ForegroundColor $colors.Success
 
 Write-Host
 Write-Host "[SUCCESS] Patch process completed!" -ForegroundColor $colors.Success
